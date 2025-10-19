@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #1d3557, #457b9d);
+  color: #0b1f33;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+header {
+  text-align: center;
+  color: #f1faee;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.card {
+  background: #f8f9fb;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(13, 34, 64, 0.25);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #dce1f0;
+  font-size: 1rem;
+  margin-top: 0.35rem;
+}
+
+button {
+  background: #1d3557;
+  color: #f1faee;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border: none;
+}
+
+button:disabled {
+  background: #a8b6c4;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background: #163049;
+}
+
+.asset-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 0.5rem;
+}
+
+.fee-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e8f1ff;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
+
+.qr-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.actions .action {
+  flex: 1 1 180px;
+  text-align: center;
+  padding: 0.85rem;
+  border-radius: 10px;
+  background: #1d3557;
+  color: #f1faee;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.actions .action:hover {
+  background: #0f223b;
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #2b3a55;
+}
+
+.status {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#status-text.pending {
+  color: #e76f51;
+}
+
+#status-text.confirmed {
+  color: #2a9d8f;
+}
+
+#tx-box a {
+  word-break: break-all;
+  color: #1d3557;
+}
+
+@media (max-width: 720px) {
+  .asset-row {
+    grid-template-columns: 1fr;
+  }
+}
