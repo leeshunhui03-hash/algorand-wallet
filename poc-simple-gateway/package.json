@@ -1,0 +1,18 @@
+{
+  "name": "algorand-payment-gateway-poc",
+  "version": "1.0.0",
+  "description": "Lightweight proof-of-concept Algorand payment gateway with HTML/CSS frontend and Node backend",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "algosdk": "^2.7.0",
+    "axios": "^1.6.7",
+    "express": "^4.18.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

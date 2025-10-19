@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algorand Payment Gateway PoC</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Algorand Payment Gateway PoC</h1>
+        <p class="subtitle">Generate donation requests for ALGO or any Algorand Standard Asset.</p>
+      </header>
+
+      <section class="card">
+        <h2>Payment Details</h2>
+        <form id="payment-form">
+          <label>
+            Recipient Address
+            <input type="text" id="recipient" placeholder="Enter Algorand address" required />
+          </label>
+
+          <label>
+            Asset
+            <div class="asset-row">
+              <select id="asset-select"></select>
+              <input type="number" id="custom-asset" placeholder="Custom ASA ID" min="1" step="1" />
+              <button type="button" id="load-asset">Load</button>
+            </div>
+          </label>
+
+          <label>
+            Amount
+            <input type="number" id="amount" placeholder="0.00" min="0" step="any" required />
+          </label>
+
+          <label>
+            Reference Note (optional)
+            <input type="text" id="note" placeholder="Auto-generated if left empty" maxlength="120" />
+          </label>
+
+          <div class="fee-row">
+            <span>Estimated Network Fee:</span>
+            <strong id="fee-display">—</strong>
+          </div>
+
+          <button type="submit" id="pay-button" disabled>Generate Payment Request</button>
+        </form>
+      </section>
+
+      <section class="card hidden" id="result-card">
+        <h2>Payment Request</h2>
+        <p id="summary"></p>
+        <div class="qr-wrapper">
+          <canvas id="qr-canvas"></canvas>
+        </div>
+        <div class="actions">
+          <a id="algorand-link" class="action" href="#" target="_blank" rel="noopener">Open in Wallet</a>
+          <a id="pera-link" class="action" href="#" target="_blank" rel="noopener">Open in Pera Wallet</a>
+        </div>
+        <p class="note">Share this QR code or link with the payer. The note value must remain unchanged to track confirmation.</p>
+        <div class="status" id="status-box">
+          <span>Status:</span>
+          <strong id="status-text">Waiting for payment…</strong>
+        </div>
+        <div class="status" id="tx-box" hidden>
+          <span>Transaction ID:</span>
+          <a id="tx-link" href="#" target="_blank" rel="noopener"></a>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js" integrity="sha256-TP0JVpazlRtZpmjHtkobaN6D+PfYZ7R6pujISiFDUo4=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
